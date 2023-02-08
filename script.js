@@ -1,10 +1,14 @@
 // options
+
+var imgs = ["test(1).svg", "test(2).svg"];
+var randImg = imgs[Math.floor(Math.random() * imgs.length)];
+
 var options = {
-  imgSrc : "test(1).svg",
+  imgSrc : randImg,
   containerName : "container",
   grid : false,
-  tileWidth : 80, //80
-  tileHeight : 40,
+  tileWidth : 80, 
+  tileHeight : 40, // default 80
   mouseTrail:true
 }
 
@@ -104,16 +108,16 @@ function addTiles()
   numTiles++;
 }
 
-function removeTiles()
-{
-  var tileToRemove = document.querySelectorAll(".tile")[0];
-  tileToRemove.removeEventListener("mouseover", moveImage); 
+// function removeTiles()
+// {
+//   var tileToRemove = document.querySelectorAll(".tile")[0];
+//   tileToRemove.removeEventListener("mouseover", moveImage); 
   
-  TweenMax.killTweensOf(tileToRemove);
-  tileToRemove.parentNode.removeChild(tileToRemove);
+//   TweenMax.killTweensOf(tileToRemove);
+//   tileToRemove.parentNode.removeChild(tileToRemove);
   
-  numTiles--;
-}
+//   numTiles--;
+// }
 
 function addListeners(){
  if(options.mouseTrail){
@@ -151,7 +155,7 @@ function moveImage(e){
   var minHeight = -tileContainer.offsetHeight+nowTile.offsetHeight;
   var nowLeftPos = (-nowTile.offsetLeft - (tileHolder.offsetLeft - (tileHolder.offsetWidth/2)));
   var nowTopPos = (-nowTile.offsetTop - (tileHolder.offsetTop - (tileHolder.offsetHeight/2)))
-  var offset = 60;
+  var offset = 60;  //default 60
   var left = nowLeftPos;
   var top = nowTopPos;
     
@@ -180,8 +184,8 @@ function moveImage(e){
   if(top < minHeight)top=minHeight;
   if(top > 0)top=0;
   
-  //tween
-  TweenMax.to(nowTile, 1.5, {backgroundPosition:left + "px " + top + "px", ease:Power1.easeOut, onComplete:resetImage, onCompleteParams:[nowTile]});
+  //tween nowTile, 1.5
+  TweenMax.to(nowTile, 2, {backgroundPosition:left + "px " + top + "px", ease:Power1.easeOut, onComplete:resetImage, onCompleteParams:[nowTile]});
 }
 
 ///////////////////////////////////////////////////////////////////

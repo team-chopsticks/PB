@@ -1,14 +1,17 @@
 body{
   background-color:#ffffff;
   text-align:center;
+  cursor: pointer;
+  background-image: url('testbg.png');
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .container{
-  /* background-image: url('testbg.png'); */
-  border:10px solid black;
+  /* border:10px solid black; */
   display:inline-block;
   position:relative;
-  width:1024px;
+  width:80vw;
   height:768px;
   overflow:hidden;
   box-sizing:border-box;
@@ -19,8 +22,8 @@ body{
   position:relative;
   vertical-align:top;
   display:inline-block;
-  border-right:1px solid rgba(0, 0, 0, 0.5);
-  border-bottom:1px solid rgba(0, 0, 0, 0.5);  
+  /* border-right:1px solid rgba(0, 0, 0, 0.5);
+  border-bottom:1px solid rgba(0, 0, 0, 0.5);   */
   box-sizing:border-box;
 }
 
