@@ -7,8 +7,8 @@ var options = {
   imgSrc : randImg,
   containerName : "container",
   grid : false,
-  tileWidth : 80, 
-  tileHeight : 40, // default 80
+  tileWidth : 20, 
+  tileHeight : 800, // default 80
   mouseTrail:true
 }
 
@@ -108,17 +108,6 @@ function addTiles()
   numTiles++;
 }
 
-// function removeTiles()
-// {
-//   var tileToRemove = document.querySelectorAll(".tile")[0];
-//   tileToRemove.removeEventListener("mouseover", moveImage); 
-  
-//   TweenMax.killTweensOf(tileToRemove);
-//   tileToRemove.parentNode.removeChild(tileToRemove);
-  
-//   numTiles--;
-// }
-
 function addListeners(){
  if(options.mouseTrail){
     document.addEventListener('mousemove', function (event) {
@@ -145,7 +134,7 @@ function resetImage(nowTile){
   var top = (-nowTile.offsetTop - (tileHolder.offsetTop - (tileHolder.offsetHeight/2)));
   
   
-  TweenMax.to(nowTile, 1, {backgroundPosition:left + "px " + top + "px", ease:Power1.easeInOut});
+  TweenMax.to(nowTile, 5, {backgroundPosition:left + "px " + top + "px", ease:Power1.easeInOut});
 }
 
 
@@ -155,7 +144,7 @@ function moveImage(e){
   var minHeight = -tileContainer.offsetHeight+nowTile.offsetHeight;
   var nowLeftPos = (-nowTile.offsetLeft - (tileHolder.offsetLeft - (tileHolder.offsetWidth/2)));
   var nowTopPos = (-nowTile.offsetTop - (tileHolder.offsetTop - (tileHolder.offsetHeight/2)))
-  var offset = 60;  //default 60
+  var offset = 100;  //default 60
   var left = nowLeftPos;
   var top = nowTopPos;
     
@@ -188,14 +177,8 @@ function moveImage(e){
   TweenMax.to(nowTile, 2, {backgroundPosition:left + "px " + top + "px", ease:Power1.easeOut, onComplete:resetImage, onCompleteParams:[nowTile]});
 }
 
-///////////////////////////////////////////////////////////////////
-
 init();
-// handle event
-//window.addEventListener("optimizedResize", resizeHandler);
 
-////////////////////////UTILS//////////////////////////////////////
-//////////////////////////////////////////////////////////////////
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;

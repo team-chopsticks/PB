@@ -2,7 +2,7 @@ body{
   background-color:#ffffff;
   text-align:center;
   cursor: pointer;
-  /* background-image: url('pattern.svg'); */
+  background-image: url('testbg.png');
   background-size: contain;
   background-repeat: no-repeat;
 }
