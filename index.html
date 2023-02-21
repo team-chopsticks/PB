@@ -1,33 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>[PB] Landing Page</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./style.css">
 
 </head>
+
 <body>
-<div class="container"></div>
+  <div class="container"></div>
 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js'></script>
-<script  src="./script.js"></script>
-<script>
-const heroImage = document.querySelector('body');
-const movementStrength = 50;
-const height = movementStrength / window.innerHeight;
-const width = movementStrength / window.innerWidth;
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js'></script>
 
-heroImage.addEventListener("mousemove", bgImageMove);
+  <script src="./script.js"></script>
+  <script src="./bg.js"></script>
 
-function bgImageMove() {
-  const pageX = event.pageX - (window.innerWidth / 2);
-  const pageY = event.pageY - (window.innerHeight / 2);
-  const newvalueX = width * pageX * -1;
-  const newvalueY = height * pageY * -1;
-  heroImage.style.backgroundPosition = newvalueX+"px " + newvalueY+"px ";
-}
-</script>
- 
 </body>
+
 </html>

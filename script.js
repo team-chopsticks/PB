@@ -4,12 +4,12 @@ var imgs = ["pattern.svg"];
 var randImg = imgs[Math.floor(Math.random() * imgs.length)];
 
 var options = {
-  imgSrc : randImg,
-  containerName : "container",
-  grid : false,
-  tileWidth : 20, 
-  tileHeight : 800, // default 80
-  mouseTrail:true
+  imgSrc: randImg,
+  containerName: "container",
+  grid: false,
+  tileWidth: 20,
+  tileHeight: 800, // default 80
+  mouseTrail: true
 }
 
 // ----------------------------------------------------------
@@ -19,41 +19,40 @@ var imgOriginalWidth, imgOriginalHeight;
 var imgCoverWidth, imgCoverHeight;
 var imageLoaded = false;
 
-numTiles=0;
+numTiles = 0;
 tileWidth = options.tileWidth;
 tileHeight = options.tileHeight;
 
 tileContainer = document.getElementsByClassName(options.containerName)[0];
 
-function init(){
-  if(options.grid == false)tileContainer.className += " noGrid";
-  
+function init() {
+  if (options.grid == false) tileContainer.className += " noGrid";
+
   //preload image and get original image size, then create tiles
   var image = new Image();
   image.src = options.imgSrc;
-  image.onload = function(e){
+  image.onload = function (e) {
     imageLoaded = true;
     imgOriginalWidth = e.currentTarget.width;
     imgOriginalHeight = e.currentTarget.height;
-    
+
     createTileHolder();
     checkTileNumber();
     positionImage();
     addListeners();
-  };  
+  };
 }
 
-function resizeHandler()
-{
-  if(imageLoaded == false)return;
-  
+function resizeHandler() {
+  if (imageLoaded == false) return;
+
   //not working yet
-  
+
   checkTileNumber();
   positionImage();
 }
 
-function createTileHolder(){
+function createTileHolder() {
   tileHolder = document.createElement('div');
   tileHolder.className = "tileHolder";
   tileHolder.style.position = "absolute";
@@ -63,53 +62,51 @@ function createTileHolder(){
   tileContainer.appendChild(tileHolder);
 }
 
-function checkTileNumber()
-{
+function checkTileNumber() {
   tileHolder.style.width = Math.ceil(tileContainer.offsetWidth / tileWidth) * tileWidth + "px";
   tileHolder.style.height = Math.ceil(tileContainer.offsetHeight / tileHeight) * tileHeight + "px";
-  
+
   var tilesFitInWindow = Math.ceil(tileContainer.offsetWidth / tileWidth) * Math.ceil(tileContainer.offsetHeight / tileHeight);
-  if(numTiles < tilesFitInWindow){
-    for (var i=0, l=tilesFitInWindow-numTiles; i < l; i++){
+  if (numTiles < tilesFitInWindow) {
+    for (var i = 0, l = tilesFitInWindow - numTiles; i < l; i++) {
       addTiles();
     }
-  }else if(numTiles > tilesFitInWindow){
-      for (var i=0, l=numTiles-tilesFitInWindow; i < l; i++){
-        removeTiles();
-      }
-  }  
+  } else if (numTiles > tilesFitInWindow) {
+    for (var i = 0, l = numTiles - tilesFitInWindow; i < l; i++) {
+      removeTiles();
+    }
+  }
 }
 
 
-function addTiles()
-{
+function addTiles() {
   var tile = document.createElement('div');
-  tile.className = "tile";  
-  
+  tile.className = "tile";
+
   //maintain aspect ratio
   imgCoverWidth = tileContainer.offsetWidth;
   imgCoverHeight = tileContainer.offsetHeight;
 
-  if(imgOriginalWidth > imgOriginalHeight){
-        imgCoverHeight = imgOriginalHeight / imgOriginalWidth * imgCoverWidth;
-    }else{
-        imgCoverWidth = imgOriginalWidth / imgOriginalHeight * imgCoverHeight;     
-    } 
-  
-  
-  tile.style.background = 'url("'+options.imgSrc+'") no-repeat';
-  tile.style.backgroundSize  = imgCoverWidth + "px " +  imgCoverHeight + "px";
+  if (imgOriginalWidth > imgOriginalHeight) {
+    imgCoverHeight = imgOriginalHeight / imgOriginalWidth * imgCoverWidth;
+  } else {
+    imgCoverWidth = imgOriginalWidth / imgOriginalHeight * imgCoverHeight;
+  }
+
+
+  tile.style.background = 'url("' + options.imgSrc + '") no-repeat';
+  tile.style.backgroundSize = imgCoverWidth + "px " + imgCoverHeight + "px";
   tile.style.width = tileWidth + "px";
   tile.style.height = tileHeight + "px";
   document.querySelectorAll(".tileHolder")[0].appendChild(tile);
-  
-  tile.addEventListener("mouseover", moveImage);  
-  
+
+  tile.addEventListener("mouseover", moveImage);
+
   numTiles++;
 }
 
-function addListeners(){
- if(options.mouseTrail){
+function addListeners() {
+  if (options.mouseTrail) {
     document.addEventListener('mousemove', function (event) {
       directionX = event.movementX || event.mozMovementX || event.webkitMovementX || 0;
       directionY = event.movementY || event.mozMovementY || event.webkitMovementY || 0;
@@ -117,88 +114,97 @@ function addListeners(){
   }
 }
 
-function positionImage(){
-  for(var t=0, l=numTiles; t < l; t++)
-  {
+function positionImage() {
+  for (var t = 0, l = numTiles; t < l; t++) {
     var nowTile = document.querySelectorAll(".tile")[t];
-   
-    var left = (-nowTile.offsetLeft - (tileHolder.offsetLeft - (tileHolder.offsetWidth/2)));
-    var top = (-nowTile.offsetTop - (tileHolder.offsetTop - (tileHolder.offsetHeight/2)));
-    
+
+    var left = (-nowTile.offsetLeft - (tileHolder.offsetLeft - (tileHolder.offsetWidth / 2)));
+    var top = (-nowTile.offsetTop - (tileHolder.offsetTop - (tileHolder.offsetHeight / 2)));
+
     nowTile.style.backgroundPosition = left + "px " + top + "px";
   }
 }
 
-function resetImage(nowTile){    
-  var left = (-nowTile.offsetLeft - (tileHolder.offsetLeft - (tileHolder.offsetWidth/2)));
-  var top = (-nowTile.offsetTop - (tileHolder.offsetTop - (tileHolder.offsetHeight/2)));
-  
-  
-  TweenMax.to(nowTile, 5, {backgroundPosition:left + "px " + top + "px", ease:Power1.easeInOut});
+function resetImage(nowTile) {
+  var left = (-nowTile.offsetLeft - (tileHolder.offsetLeft - (tileHolder.offsetWidth / 2)));
+  var top = (-nowTile.offsetTop - (tileHolder.offsetTop - (tileHolder.offsetHeight / 2)));
+
+
+  TweenMax.to(nowTile, 5, {
+    backgroundPosition: left + "px " + top + "px",
+    ease: Power1.easeInOut
+  });
 }
 
 
-function moveImage(e){
+function moveImage(e) {
   var nowTile = e.currentTarget
-  var minWidth = -tileContainer.offsetWidth+nowTile.offsetWidth;
-  var minHeight = -tileContainer.offsetHeight+nowTile.offsetHeight;
-  var nowLeftPos = (-nowTile.offsetLeft - (tileHolder.offsetLeft - (tileHolder.offsetWidth/2)));
-  var nowTopPos = (-nowTile.offsetTop - (tileHolder.offsetTop - (tileHolder.offsetHeight/2)))
-  var offset = 100;  //default 60
+  var minWidth = -tileContainer.offsetWidth + nowTile.offsetWidth;
+  var minHeight = -tileContainer.offsetHeight + nowTile.offsetHeight;
+  var nowLeftPos = (-nowTile.offsetLeft - (tileHolder.offsetLeft - (tileHolder.offsetWidth / 2)));
+  var nowTopPos = (-nowTile.offsetTop - (tileHolder.offsetTop - (tileHolder.offsetHeight / 2)))
+  var offset = 100; //default 60
   var left = nowLeftPos;
   var top = nowTopPos;
-    
-  if(options.mouseTrail){
+
+  if (options.mouseTrail) {
     //direction-aware movement
-    if(directionX > 0){
+    if (directionX > 0) {
       left = nowLeftPos + offset;
-    }else if(directionX < 0){
+    } else if (directionX < 0) {
       left = nowLeftPos - offset;
     }
-    
-    if(directionY > 0){
+
+    if (directionY > 0) {
       top = nowTopPos + offset;
-    }else if(directionY < 0){
+    } else if (directionY < 0) {
       top = nowTopPos - offset;
     }
-  }else{
+  } else {
     //random movement
-    left = getRandomInt(nowLeftPos - offset , nowLeftPos + offset);
+    left = getRandomInt(nowLeftPos - offset, nowLeftPos + offset);
     top = getRandomInt(nowTopPos - offset, nowTopPos + offset);
   }
-    
+
   // bounds
-  if(left < minWidth)left=minWidth;
-  if(left > 0)left=0;
-  if(top < minHeight)top=minHeight;
-  if(top > 0)top=0;
-  
+  if (left < minWidth) left = minWidth;
+  if (left > 0) left = 0;
+  if (top < minHeight) top = minHeight;
+  if (top > 0) top = 0;
+
   //tween nowTile, 1.5
-  TweenMax.to(nowTile, 2, {backgroundPosition:left + "px " + top + "px", ease:Power1.easeOut, onComplete:resetImage, onCompleteParams:[nowTile]});
+  TweenMax.to(nowTile, 2, {
+    backgroundPosition: left + "px " + top + "px",
+    ease: Power1.easeOut,
+    onComplete: resetImage,
+    onCompleteParams: [nowTile]
+  });
 }
 
 init();
 
 
 function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-(function() {
-    var throttle = function(type, name, obj) {
-        obj = obj || window;
-        var running = false;
-        var func = function() {
-            if (running) { return; }
-            running = true;
-             requestAnimationFrame(function() {
-                obj.dispatchEvent(new CustomEvent(name));
-                running = false;
-            });
-        };
-        obj.addEventListener(type, func);
+(function () {
+  var throttle = function (type, name, obj) {
+    obj = obj || window;
+    var running = false;
+    var func = function () {
+      if (running) {
+        return;
+      }
+      running = true;
+      requestAnimationFrame(function () {
+        obj.dispatchEvent(new CustomEvent(name));
+        running = false;
+      });
     };
+    obj.addEventListener(type, func);
+  };
 
-    /* init - you can init any event */
-    throttle("resize", "optimizedResize");
+  /* init - you can init any event */
+  throttle("resize", "optimizedResize");
 })();
