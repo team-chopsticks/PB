@@ -1,38 +1,24 @@
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PB_LandingPage</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+  <div class="wrap-all">
+    <ul class="image-container">
+    </ul>
+  </div>
+  <div class="container"></div>
+
+  <script src="script.js"></script>
   
-<div class="wrap-all">
-  <ul class="image-container">
-  </ul>
-</div>
-<div class="container"></div>
-
-<script src="script.js"></script>
-</script>
-<script  src="./script.js"></script>
-<script>
-const heroImage = document.querySelector('body');
-const movementStrength = 50;
-const height = movementStrength / window.innerHeight;
-const width = movementStrength / window.innerWidth;
-
-heroImage.addEventListener("mousemove", bgImageMove);
-
-function bgImageMove() {
-  const pageX = event.pageX - (window.innerWidth / 2);
-  const pageY = event.pageY - (window.innerHeight / 2);
-  const newvalueX = width * pageX * -1;
-  const newvalueY = height * pageY * -1;
-  heroImage.style.backgroundPosition = newvalueX+"px " + newvalueY+"px ";
-}
-</script>
- 
 </body>
+
 </html>

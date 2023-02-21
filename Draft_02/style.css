@@ -1,22 +1,22 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
 
-body{
-  background-color:#ffffff;
-  text-align:center;
+body {
+  background-color: #ffffff;
+  background: url('testbg.png');
+  text-align: center;
   cursor: pointer;
   background-size: contain;
   background-repeat: no-repeat;
-
 }
 
-:root{
-  --facebook : tomato
+:root {
+  --facebook: tomato
 }
 
-.wrap-all{
+.wrap-all {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,97 +24,100 @@ body{
   cursor: pointer;
 }
 
-ul{
-  transition: all 0.4s ease;
+ul {
   margin-top: 1rem;
   list-style: none;
-  /* border: 1px solid var(--facebook); */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  /* transition: all 0.9s ease-out; */
 }
 
-li{
-  width: 100px;
-  height: 100px;
-  background-image: url('pattern400x400.png');
+li {
+  width: 10rem;
+  height: 10rem;
+  background: url('pattern400x400.png');
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  background-size: 40rem;
+  /* transition: all 0.9s ease-out; */
 }
 
-.list0{
+.list0 {
   background-position-x: 0px;
   background-position-y: 0px;
 }
 
-.list1{
-  background-position-x: -100px;
+.list1 {
+  background-position-x: -10rem;
   background-position-y: 0px;
 }
 
-.list2{
-  background-position-x: -200px;
+.list2 {
+  background-position-x: -20rem;
   background-position-y: 0px;
 }
 
-.list3{
-  background-position-x: -300px;
+.list3 {
+  background-position-x: -30rem;
   background-position-y: 0px;
 }
 
-.list4{
+.list4 {
   background-position-x: 0px;
-  background-position-y: -100px;
+  background-position-y: -10rem;
 }
 
-.list5{
-  background-position-x: -100px;
-  background-position-y: -100px;
+.list5 {
+  background-position-x: -10rem;
+  background-position-y: -10rem;
 }
 
-.list6{
-  background-position-x: -200px;
-  background-position-y: -100px;
+.list6 {
+  background-position-x: -20rem;
+  background-position-y: -10rem;
 }
 
-.list7{
-  background-position-x: -300px;
-  background-position-y: -100px;
+.list7 {
+  background-position-x: -30rem;
+  background-position-y: -10rem;
 }
 
-.list8{
+.list8 {
   background-position-x: 0px;
-  background-position-y: -200px;
+  background-position-y: -20rem;
 }
 
-.list9{
-  background-position-x: -100px;
-  background-position-y: -200px;
+.list9 {
+  background-position-x: -10rem;
+  background-position-y: -20rem;
 }
 
-.list10{
-  background-position-x: -200px;
-  background-position-y: -200px;
+.list10 {
+  background-position-x: -20rem;
+  background-position-y: -20rem;
 }
 
-.list11{
-  background-position-x: -300px;
-  background-position-y: -200px;
+.list11 {
+  background-position-x: -30rem;
+  background-position-y: -20rem;
 }
 
-.list12{
+.list12 {
   background-position-x: 0px;
-  background-position-y: -300px;
+  background-position-y: -30rem;
 }
 
-.list13{
-  background-position-x: -100px;
-  background-position-y: -300px;
+.list13 {
+  background-position-x: -10rem;
+  background-position-y: -30rem;
 }
 
-.list14{
-  background-position-x: -200px;
-  background-position-y: -300px;
+.list14 {
+  background-position-x: -20rem;
+  background-position-y: -30rem;
 }
 
-.list15{
-  background-position-x: -300px;
-  background-position-y: -300px;
+.list15 {
+  background-position-x: -30rem;
+  background-position-y: -30rem;
 }
