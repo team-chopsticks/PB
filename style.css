@@ -5,6 +5,7 @@ body {
   background-image: url('testbg.png');
   background-size: cover;
   background-repeat: no-repeat;
+  overflow: hidden;
 }
 
 .container {
@@ -16,28 +17,32 @@ body {
 
 
 .tile {
-  position: relative;
-  vertical-align: top;
+  /* position: relative;
+  vertical-align: top; */
   display: inline-block;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
+  /* width: 100%;
+  height: 800%;
+  box-sizing: border-box; */
 }
 
-.tile:after {
+/* .tile:after {
   top: 100%;
   right: 0px;
   z-index: 2;
-}
+} */
 
 /*-- no grid --*/
 
-.noGrid .tile {
+/* .noGrid .tile {
   border-right: 0px solid rgba(0, 0, 0, 0.5);
   border-bottom: 0px solid rgba(0, 0, 0, 0.5);
 }
 
 .noGrid .tile:after {
   content: none;
-}
+} */
 
+
+@media only screen and (min-width: 1900px) {
+
+}
