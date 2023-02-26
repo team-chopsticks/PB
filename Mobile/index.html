@@ -1,0 +1,644 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PB_LandingPage</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #ffffff;
+      text-align: center;
+      cursor: pointer;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+    :root {
+      --facebook: tomato
+    }
+
+    .wrap-all {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    ul {
+      /* margin-top: 10rem; */
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(20, 1fr);
+      grid-template-rows: 1fr;
+    }
+
+    li {
+      width: 20px;
+      height: 400px;
+      background: url('pattern400x400.png');
+      /* background-size: cover;
+      background-repeat: no-repeat; */
+    }
+
+    @keyframes move0 {
+      from {
+        background-position: 0 0;
+      }
+
+      to {
+        background-position: var(--pos-x) var(--pos-y);
+      }
+    }
+
+    .list0 {
+      background-position-x: 0px;
+      background-position-y: 0px;
+      animation-name: move0;
+      animation-duration: 2s;
+      /* total duration */
+      animation-delay: 2s;
+      /* delay before starting */
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-fill-mode: forwards;
+
+      animation-timing-function: ease-in-out;
+    }
+
+    @keyframes move1 {
+      from {
+        background-position: -20 0;
+      }
+
+      to {
+        background-position: var(--pos-x) var(--pos-y);
+      }
+    }
+
+    .list1 {
+      background-position-x: -20px;
+      background-position-y: 0px;
+
+      animation-name: move1;
+      animation-duration: 2s;
+      /* total duration */
+      animation-delay: 2s;
+      /* delay before starting */
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-fill-mode: forwards;
+
+      animation-timing-function: ease-in-out;
+    }
+
+    @keyframes move2 {
+      from {
+        background-position: -40 0;
+      }
+
+      to {
+        background-position: var(--pos-x) var(--pos-y);
+      }
+    }
+
+
+    .list2 {
+      background-position-x: -40px;
+      background-position-y: 0px;
+
+      animation-name: move2;
+      animation-duration: 2s;
+      /* total duration */
+      animation-delay: 2s;
+      /* delay before starting */
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-fill-mode: forwards;
+
+      animation-timing-function: ease-in-out;
+    }
+
+    @keyframes move3 {
+      from {
+        background-position: -60 0;
+      }
+
+      to {
+        background-position: var(--pos-x) var(--pos-y);
+      }
+    }
+
+    .list3 {
+      background-position-x: -60px;
+      background-position-y: 0px;
+      animation-name: move3;
+      animation-duration: 2s;
+      /* total duration */
+      animation-delay: 2s;
+      /* delay before starting */
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-fill-mode: forwards;
+
+      animation-timing-function: ease-in-out;
+    }
+
+    @keyframes move4 {
+      from {
+        background-position: -80 0;
+      }
+
+      to {
+        background-position: var(--pos-x) var(--pos-y);
+      }
+    }
+
+    .list4 {
+      background-position-x: -80px;
+      background-position-y: 0px;
+      animation-name: move4;
+      animation-duration: 2s;
+      /* total duration */
+      animation-delay: 2s;
+      /* delay before starting */
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-fill-mode: forwards;
+
+      animation-timing-function: ease-in-out;
+    }
+
+    @keyframes move5 {
+      from {
+        background-position: -100 0;
+      }
+
+      to {
+        background-position: var(--pos-x) var(--pos-y);
+      }
+    }
+
+    .list5 {
+      background-position-x: -100px;
+      background-position-y: 0px;
+      animation-name: move5;
+      animation-duration: 2s;
+      /* total duration */
+      animation-delay: 2s;
+      /* delay before starting */
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-fill-mode: forwards;
+
+      animation-timing-function: ease-in-out;
+    }
+
+    @keyframes move6 {
+      from {
+        background-position: -120 0;
+      }
+
+      to {
+        background-position: var(--pos-x) var(--pos-y);
+      }
+    }
+
+    .list6 {
+      background-position-x: -120px;
+      background-position-y: 0px;
+      animation-name: move6;
+      animation-duration: 2s;
+      /* total duration */
+      animation-delay: 2s;
+      /* delay before starting */
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-fill-mode: forwards;
+
+      animation-timing-function: ease-in-out;
+    }
+
+    @keyframes move7 {
+      from {
+        background-position: -140 0;
+      }
+
+      to {
+        background-position: var(--pos-x) var(--pos-y);
+      }
+    }
+
+    .list7 {
+      background-position-x: -140px;
+      background-position-y: 0px;
+      animation-name: move7;
+      animation-duration: 2s;
+      /* total duration */
+      animation-delay: 2s;
+      /* delay before starting */
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-fill-mode: forwards;
+
+      animation-timing-function: ease-in-out;
+    }
+
+    @keyframes move8 {
+      from {
+        background-position: -160 0;
+      }
+
+      to {
+        background-position: var(--pos-x) var(--pos-y);
+      }
+    }
+
+    .list8 {
+      background-position-x: -160px;
+      background-position-y: 0px;
+      animation-name: move8;
+      animation-duration: 2s;
+      /* total duration */
+      animation-delay: 2s;
+      /* delay before starting */
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-fill-mode: forwards;
+
+      animation-timing-function: ease-in-out;
+    }
+
+    @keyframes move9 {
+      from {
+        background-position: -180 0;
+      }
+
+      to {
+        background-position: var(--pos-x) var(--pos-y);
+      }
+    }
+
+    .list9 {
+      background-position-x: -180px;
+      background-position-y: 0px;
+      animation-name: move9;
+      animation-duration: 2s;
+      /* total duration */
+      animation-delay: 2s;
+      /* delay before starting */
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-fill-mode: forwards;
+
+      animation-timing-function: ease-in-out;
+    }
+
+    @keyframes move10 {
+      from {
+        background-position: -200 0;
+      }
+
+      to {
+        background-position: var(--pos-x) var(--pos-y);
+      }
+    }
+
+    .list10 {
+      background-position-x: -200px;
+      background-position-y: 0px;
+      animation-name: move10;
+      animation-duration: 2s;
+      /* total duration */
+      animation-delay: 2s;
+      /* delay before starting */
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-fill-mode: forwards;
+
+      animation-timing-function: ease-in-out;
+    }
+
+    @keyframes move11 {
+      from {
+        background-position: -220 0;
+      }
+
+      to {
+        background-position: var(--pos-x) var(--pos-y);
+      }
+    }
+
+    .list11 {
+      background-position-x: -220px;
+      background-position-y: 0px;
+      animation-name: move11;
+      animation-duration: 2s;
+      /* total duration */
+      animation-delay: 2s;
+      /* delay before starting */
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-fill-mode: forwards;
+
+      animation-timing-function: ease-in-out;
+    }
+
+    @keyframes move12 {
+      from {
+        background-position: -240 0;
+      }
+
+      to {
+        background-position: var(--pos-x) var(--pos-y);
+      }
+    }
+
+    .list12 {
+      background-position-x: -240px;
+      background-position-y: 0px;
+      animation-name: move12;
+      animation-duration: 2s;
+      /* total duration */
+      animation-delay: 2s;
+      /* delay before starting */
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-fill-mode: forwards;
+
+      animation-timing-function: ease-in-out;
+    }
+
+    @keyframes move13 {
+      from {
+        background-position: -260 0;
+      }
+
+      to {
+        background-position: var(--pos-x) var(--pos-y);
+      }
+    }
+
+    .list13 {
+      background-position-x: -260px;
+      background-position-y: 0px;
+      animation-name: move13;
+      animation-duration: 2s;
+      /* total duration */
+      animation-delay: 2s;
+      /* delay before starting */
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-fill-mode: forwards;
+
+      animation-timing-function: ease-in-out;
+    }
+
+    @keyframes move14 {
+      from {
+        background-position: -280 0;
+      }
+
+      to {
+        background-position: var(--pos-x) var(--pos-y);
+      }
+    }
+
+    .list14 {
+      background-position-x: -280px;
+      background-position-y: 0px;
+      animation-name: move14;
+      animation-duration: 2s;
+      /* total duration */
+      animation-delay: 2s;
+      /* delay before starting */
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-fill-mode: forwards;
+
+      animation-timing-function: ease-in-out;
+    }
+
+    @keyframes move15 {
+      from {
+        background-position: -300 0;
+      }
+
+      to {
+        background-position: var(--pos-x) var(--pos-y);
+      }
+    }
+
+    .list15 {
+      background-position-x: -300px;
+      background-position-y: 0px;
+      animation-name: move15;
+      animation-duration: 2s;
+      /* total duration */
+      animation-delay: 2s;
+      /* delay before starting */
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-fill-mode: forwards;
+
+      animation-timing-function: ease-in-out;
+    }
+
+    @keyframes move16 {
+      from {
+        background-position: -320 0;
+      }
+
+      to {
+        background-position: var(--pos-x) var(--pos-y);
+      }
+    }
+
+    .list16 {
+      background-position-x: -320px;
+      background-position-y: 0px;
+      animation-name: move16;
+      animation-duration: 2s;
+      /* total duration */
+      animation-delay: 2s;
+      /* delay before starting */
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-fill-mode: forwards;
+
+      animation-timing-function: ease-in-out;
+    }
+
+    @keyframes move17 {
+      from {
+        background-position: -340 0;
+      }
+
+      to {
+        background-position: var(--pos-x) var(--pos-y);
+      }
+    }
+
+    .list17 {
+      background-position-x: -340px;
+      background-position-y: 0px;
+      animation-name: move17;
+      animation-duration: 2s;
+      /* total duration */
+      animation-delay: 2s;
+      /* delay before starting */
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-fill-mode: forwards;
+
+      animation-timing-function: ease-in-out;
+    }
+
+    @keyframes move18 {
+      from {
+        background-position: -360 0;
+      }
+
+      to {
+        background-position: var(--pos-x) var(--pos-y);
+      }
+    }
+
+    .list18 {
+      background-position-x: -360px;
+      background-position-y: 0px;
+      animation-name: move18;
+      animation-duration: 2s;
+      /* total duration */
+      animation-delay: 2s;
+      /* delay before starting */
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-fill-mode: forwards;
+
+      animation-timing-function: ease-in-out;
+    }
+
+    @keyframes move19 {
+      from {
+        background-position: -380 0;
+      }
+
+      to {
+        background-position: var(--pos-x) var(--pos-y);
+      }
+    }
+
+    .list19 {
+      background-position-x: -380px;
+      background-position-y: 0px;
+      animation-name: move19;
+      animation-duration: 2s;
+      /* total duration */
+      animation-delay: 2s;
+      /* delay before starting */
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-fill-mode: forwards;
+
+      animation-timing-function: ease-in-out;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="wrap-all">
+    <ul class="image-container">
+    </ul>
+  </div>
+  <div class="container"></div>
+
+  <script src="script.js"></script>
+
+  <script>
+    const container = document.querySelector(".image-container");
+    const wrapAll = document.querySelector(".wrap-all");
+    const tileCount = 20;
+
+    let tiles = [];
+
+    setGame();
+
+    function setGame() {
+      tiles = createImageTiles();
+      tiles.forEach(tile => container.appendChild(tile));
+    }
+
+    wrapAll.addEventListener('click', () => {
+      shuffle(tiles).forEach(tile => container.appendChild(tile));
+      setTimeout(() => {
+        container.innerHTML = "";
+        setGame();
+      }, 3000)
+    })
+
+    // function createImageTiles() {
+    //   const tempArray = [];
+    //   Array(tileCount).fill().forEach((_, i) => {
+    //     const li = document.createElement("li");
+    //     li.setAttribute('data-index', i) //data 인덱스 넣기
+    //     li.classList.add(`list${i}`);
+    //     tempArray.push(li)
+    //   })
+    //   return tempArray;
+    // }
+
+    function createImageTiles() {
+      const tempArray = [];
+      Array(tileCount).fill().forEach((_, i) => {
+        const li = document.createElement("li");
+        li.setAttribute('data-index', i) //data 인덱스 넣기
+        li.classList.add(`list${i}`);
+
+        // Generate random values for background position
+        const posX = Math.floor(Math.random() * 80);
+        const posY = Math.floor(Math.random() * 40);
+        li.style.setProperty("--pos-x", `${posX}px`);
+        li.style.setProperty("--pos-y", `${posY}px`);
+
+        li.classList.add('move-animation'); // Add animation class
+        tempArray.push(li)
+      })
+      return tempArray;
+    }
+
+
+
+
+
+    
+
+    function shuffle(array) {
+      let index = array.length - 1;
+      while (index > 0) {
+        const randomIndex = Math.floor(Math.random() * (index + 1));
+        [array[index], array[randomIndex]] = [array[randomIndex], array[index]]
+        index--;
+      }
+      return array;
+    }
+  </script>
+
+</body>
+
+</html>

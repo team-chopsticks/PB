@@ -46,6 +46,7 @@ function init() {
     // Set the tile width based on the device width
     if (window.innerWidth < 820) {
       tileWidth = 10; // Set the tile width to 10 for devices with width less than 820px
+      
     }
 
 
@@ -83,7 +84,7 @@ function createTileHolder() {
 
   function handleMediaQuery(event) {
     if (event.matches) {
-      tileHolder.style.transform = "translate(-50%, -10%) scale(1.6)";
+      tileHolder.style.transform = "translate(-50%, -10%) scale(1.1)";
     } else {
       tileHolder.style.transform = "translate(-50%, -65%)";
     }
