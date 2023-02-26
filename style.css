@@ -3,16 +3,13 @@ body {
   text-align: center;
   cursor: pointer;
   background-image: url('testbg.png');
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
 .container {
-  /* border:10px solid black; */
-  display: inline-block;
-  position: relative;
-  width: 80vw;
-  height: 768px;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -22,22 +19,15 @@ body {
   position: relative;
   vertical-align: top;
   display: inline-block;
-  /* border-right:1px solid rgba(0, 0, 0, 0.5);
-  border-bottom:1px solid rgba(0, 0, 0, 0.5);   */
+  width: 100%;
+  height: 100%;
   box-sizing: border-box;
 }
 
 .tile:after {
-  content: "";
-  background-color: #cc1c32;
-  width: 6px;
-  height: 6px;
-  position: absolute;
   top: 100%;
   right: 0px;
-  transform: translate(50%, -50%);
   z-index: 2;
-  line-height: 1;
 }
 
 /*-- no grid --*/
@@ -50,3 +40,4 @@ body {
 .noGrid .tile:after {
   content: none;
 }
+

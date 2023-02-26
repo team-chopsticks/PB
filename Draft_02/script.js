@@ -12,8 +12,6 @@ const container = document.querySelector(".image-container");
   }
 
   wrapAll.addEventListener('click', () => {
-
-
     shuffle(tiles).forEach(tile => container.appendChild(tile));
 
         // select all "li" elements

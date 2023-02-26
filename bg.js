@@ -1,5 +1,5 @@
 const heroImage = document.querySelector('body');
-const movementStrength = 50;
+const movementStrength = 150;
 const height = movementStrength / window.innerHeight;
 const width = movementStrength / window.innerWidth;
 

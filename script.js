@@ -8,7 +8,7 @@ var options = {
   containerName: "container",
   grid: false,
   tileWidth: 20,
-  tileHeight: 800, // default 80
+  tileHeight: 1200, // default 80
   mouseTrail: true
 }
 
@@ -25,6 +25,11 @@ tileHeight = options.tileHeight;
 
 tileContainer = document.getElementsByClassName(options.containerName)[0];
 
+function autoMoveImage() {
+  var randomTile = document.querySelectorAll(".tile")[Math.floor(Math.random() * numTiles)];
+  moveImage({currentTarget: randomTile});
+}
+
 function init() {
   if (options.grid == false) tileContainer.className += " noGrid";
 
@@ -40,6 +45,10 @@ function init() {
     checkTileNumber();
     positionImage();
     addListeners();
+
+    if (window.innerWidth < 820) {
+      setInterval(autoMoveImage, 100);
+    }
   };
 }
 
@@ -58,8 +67,22 @@ function createTileHolder() {
   tileHolder.style.position = "absolute";
   tileHolder.style.top = "50%";
   tileHolder.style.left = "50%";
-  tileHolder.style.transform = "translate(-50%, -50%)";
+  tileHolder.style.transform = "translate(-50%, -65%) scale(1.1)";
   tileContainer.appendChild(tileHolder);
+
+    // Add media query to adjust position on smaller screens
+    const mediaQuery = window.matchMedia("(max-width: 820px)");
+
+    function handleMediaQuery(event) {
+      if (event.matches) {
+        tileHolder.style.transform = "translate(-50%, -10%) scale(1.6)";
+      } else {
+        tileHolder.style.transform = "translate(-50%, -65%)";
+      }
+    }
+
+    handleMediaQuery(mediaQuery);
+    mediaQuery.addListener(handleMediaQuery);
 }
 
 function checkTileNumber() {
@@ -130,7 +153,7 @@ function resetImage(nowTile) {
   var top = (-nowTile.offsetTop - (tileHolder.offsetTop - (tileHolder.offsetHeight / 2)));
 
 
-  TweenMax.to(nowTile, 5, {
+  TweenMax.to(nowTile, 2, {
     backgroundPosition: left + "px " + top + "px",
     ease: Power1.easeInOut
   });
@@ -172,7 +195,7 @@ function moveImage(e) {
   if (top < minHeight) top = minHeight;
   if (top > 0) top = 0;
 
-  //tween nowTile, 1.5
+  //tween nowTile, 1.5 -- 2는 시간
   TweenMax.to(nowTile, 2, {
     backgroundPosition: left + "px " + top + "px",
     ease: Power1.easeOut,
@@ -208,3 +231,7 @@ function getRandomInt(min, max) {
   /* init - you can init any event */
   throttle("resize", "optimizedResize");
 })();
+
+window.addEventListener('resize', function() {
+  location.reload();
+});
